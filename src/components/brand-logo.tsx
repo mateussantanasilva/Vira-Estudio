@@ -1,3 +1,5 @@
+import { Link } from "react-router"
+
 import { cn } from "@/lib/utils"
 import { images } from "@/constants/images"
 
@@ -21,8 +23,8 @@ export function BrandLogo({
         : images.logoBlack
 
   return (
-    <a
-      href="/#topo"
+    <Link
+      to="/#topo"
       className={cn(
         "inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
         className
@@ -41,6 +43,6 @@ export function BrandLogo({
         )}
         decoding="async"
       />
-    </a>
+    </Link>
   )
 }

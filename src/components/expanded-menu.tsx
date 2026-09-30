@@ -3,6 +3,7 @@ import type { ReactNode } from "react"
 
 import { CtaArrow } from "@/components/cta-arrow"
 import { useMenu } from "@/components/menu-context"
+import { SiteLink } from "@/components/site-link"
 import {
   Sheet,
   SheetClose,
@@ -90,13 +91,13 @@ export function ExpandedMenu() {
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  <a
+                  <SiteLink
                     href={link.href}
                     className={menuLinkClassName()}
                     onClick={closeMenu}
                   >
                     {link.label}
-                  </a>
+                  </SiteLink>
                 </motion.li>
               ))}
             </ul>

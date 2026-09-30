@@ -3,6 +3,7 @@ import { Menu } from "lucide-react"
 import { CtaArrow } from "@/components/cta-arrow"
 import { BrandLogo } from "@/components/brand-logo"
 import { MenuTrigger } from "@/components/expanded-menu"
+import { SiteLink } from "@/components/site-link"
 import { ctaLink, mainNavLinks } from "@/constants/navigation"
 import { ctaOrangeClassName, navLinkClassName } from "@/lib/cta"
 
@@ -21,13 +22,13 @@ export function SiteHeader() {
             aria-label="Principal"
           >
             {mainNavLinks.map((link) => (
-              <a
+              <SiteLink
                 key={link.href}
                 href={link.href}
                 className={navLinkClassName()}
               >
                 {link.label}
-              </a>
+              </SiteLink>
             ))}
           </nav>
 

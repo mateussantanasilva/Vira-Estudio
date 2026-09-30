@@ -1,5 +1,6 @@
 import { BrandLogo } from "@/components/brand-logo"
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal"
+import { SiteLink } from "@/components/site-link"
 import { footerNavColumns } from "@/constants/navigation"
 import { footerLinkClassName } from "@/lib/cta"
 import { stagger } from "@/lib/motion"
@@ -34,15 +35,9 @@ export function SiteFooter() {
               <ul className="flex flex-col gap-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className={footerLinkClassName()}
-                      {...(link.href.startsWith("http")
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
-                    >
+                    <SiteLink href={link.href} className={footerLinkClassName()}>
                       {link.label}
-                    </a>
+                    </SiteLink>
                   </li>
                 ))}
               </ul>

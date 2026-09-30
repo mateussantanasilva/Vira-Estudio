@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
 import { useEffect, useState, type ReactNode } from "react"
+import { Link, useParams } from "react-router"
 
 import { ExpandedMenu } from "@/components/expanded-menu"
 import { MinimalMenu } from "@/components/minimal-menu"
@@ -136,11 +137,11 @@ function bannerSlots(banners: ProjectImage[]) {
   }
 }
 
-export function CasePage({ projectId }: { projectId: string }) {
+export function CasePage() {
+  const { projectId = "" } = useParams()
   const project = getProject(projectId)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
     const previous = document.title
     document.title = project
       ? `${project.title} — Vira Estúdio`
@@ -157,13 +158,13 @@ export function CasePage({ projectId }: { projectId: string }) {
           <p className="text-lg font-medium text-beige sm:text-xl">
             Esse case não está por aqui.
           </p>
-          <a
-            href="/#ja-virou"
+          <Link
+            to="/#ja-virou"
             className="mt-6 inline-flex w-fit items-center gap-3 font-bold text-orange transition-opacity duration-200 hover:opacity-70"
           >
             <ArrowLeft className="size-8" strokeWidth={2.5} aria-hidden="true" />
             Voltar para Já virou
-          </a>
+          </Link>
         </div>
       </CaseLayout>
     )
@@ -183,8 +184,8 @@ function CaseDetail({ project }: { project: Project }) {
     <>
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-4 sm:px-6 sm:pt-10 lg:px-8 lg:pt-14">
         <div className="flex items-center gap-4 sm:gap-6">
-          <a
-            href="/#ja-virou"
+          <Link
+            to="/#ja-virou"
             className="inline-flex shrink-0 text-orange transition-opacity duration-200 hover:opacity-70"
             aria-label="Voltar para Já virou"
           >
@@ -193,7 +194,7 @@ function CaseDetail({ project }: { project: Project }) {
               strokeWidth={2.5}
               aria-hidden="true"
             />
-          </a>
+          </Link>
           <div className="flex h-12 items-center sm:h-16">
             <img
               src={project.logo.src}

@@ -1,3 +1,5 @@
+import { Link } from "react-router"
+
 import { cn } from "@/lib/utils"
 import type { Project } from "@/constants/projects"
 
@@ -16,7 +18,7 @@ export function ProjectCard({
 
   return (
     <article className={cn("flex w-full flex-col gap-3 sm:gap-4", className)}>
-      <a href={`/cases/${project.id}`} className="block">
+      <Link to={`/cases/${project.id}`} className="block">
         <img
           src={project.imageUrl}
           alt={project.imageAlt}
@@ -26,7 +28,7 @@ export function ProjectCard({
           loading="lazy"
           decoding="async"
         />
-      </a>
+      </Link>
       <div>
         <p className="text-sm font-semibold lowercase tracking-wide text-black/80">
           {project.categories.join(".")}
