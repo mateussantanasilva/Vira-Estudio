@@ -17,14 +17,14 @@ export function ProjectCard({
   const isLarge = size === "large"
 
   return (
-    <article className={cn("flex w-full flex-col gap-3 sm:gap-4", className)}>
-      <Link to={`/cases/${project.id}`} className="block">
+    <article className={cn("group flex w-full flex-col gap-3 sm:gap-4", className)}>
+      <Link to={`/cases/${project.id}`} className="block overflow-hidden">
         <img
           src={project.imageUrl}
           alt={project.imageAlt}
           width={isLarge ? 960 : 640}
           height={isLarge ? 640 : 480}
-          className="block h-auto w-full"
+          className="block h-auto w-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
           loading="lazy"
           decoding="async"
         />
@@ -35,7 +35,7 @@ export function ProjectCard({
         </p>
         <h3
           className={cn(
-            "mt-1 font-bold text-black",
+            "mt-1 font-bold text-black transition-colors duration-300 group-hover:text-orange",
             isLarge ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
           )}
         >
