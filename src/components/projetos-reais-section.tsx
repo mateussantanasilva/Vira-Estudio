@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "motion/react"
 
+import img10 from "@/assets/empresas-reais/10.webp"
 import { Reveal } from "@/components/reveal"
 import { empresasReaisImages, type EmpresaRealImage } from "@/constants/empresas-reais"
 import { revealTransition, revealVariants } from "@/lib/motion"
 import { cn } from "@/lib/utils"
+
+/** Fecha a grade de 2 colunas (2×5); some a partir de sm, onde a grade vira 3×3. */
+const mobileFiller = {
+  src: img10,
+  alt: "Profissional de terno",
+  width: 1080,
+  height: 789,
+} satisfies EmpresaRealImage
 
 /** Ordem espaçada no mosaic — evita destacar vizinhos em sequência. */
 const HIGHLIGHT_ORDER = [3, 6, 1, 8, 4, 0, 5, 2, 7] as const
@@ -130,6 +139,12 @@ export function ProjetosReaisSection() {
             />
           )
         })}
+        <GridCell
+          image={mobileFiller}
+          className="sm:hidden"
+          isActive={false}
+          reduceMotion={reduceMotion}
+        />
       </div>
 
       {/*
