@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from "react"
+import { StrictMode, useLayoutEffect } from "react"
 import { createRoot } from "react-dom/client"
 import {
   BrowserRouter,
@@ -13,14 +13,17 @@ import { Home } from "./pages/home.tsx"
 function ScrollManager() {
   const { pathname, hash } = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!hash) {
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" })
       return
     }
 
     const id = decodeURIComponent(hash.slice(1))
-    document.getElementById(id)?.scrollIntoView()
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "instant",
+      block: "start",
+    })
   }, [pathname, hash])
 
   return null
