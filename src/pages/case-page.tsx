@@ -91,7 +91,7 @@ function CaseMeta({
   const Value = as === "h1" ? "h1" : "p"
 
   return (
-    <div className="flex min-w-0 flex-1 items-end justify-between gap-3 border-b border-beige/50 pb-2 sm:gap-4">
+    <div className="flex w-full min-w-0 flex-1 items-end justify-between gap-3 border-b border-beige/50 pb-2 sm:gap-4 md:w-auto">
       <span className="text-right text-sm text-beige/50 uppercase sm:text-base">
         {label}
       </span>
@@ -205,7 +205,7 @@ function CaseDetail({ project }: { project: Project }) {
           </div>
         </div>
 
-        <header className="mt-10 flex items-stretch gap-4 sm:gap-8 lg:mt-14 lg:gap-12">
+        <header className="mt-10 flex flex-col gap-4 md:flex-row md:items-stretch md:gap-8 lg:mt-14 lg:gap-12">
           <CaseMeta as="h1" label="Projeto" value={project.title} />
           <CaseMeta label="Tipo" value={project.categories.join(".")} />
         </header>
