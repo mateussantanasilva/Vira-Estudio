@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { Home } from './pages/home.tsx'
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import "./index.css"
+import { CasePage } from "./pages/case-page.tsx"
+import { Home } from "./pages/home.tsx"
 
-createRoot(document.getElementById('root')!).render(
+const caseMatch = window.location.pathname.match(/^\/cases\/([^/]+)\/?$/)
+const projectId = caseMatch ? decodeURIComponent(caseMatch[1]) : null
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Home />
+    {projectId ? <CasePage projectId={projectId} /> : <Home />}
   </StrictMode>,
 )

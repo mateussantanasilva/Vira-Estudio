@@ -22,7 +22,7 @@ export function BrandLogo({
 
   return (
     <a
-      href="#topo"
+      href="/#topo"
       className={cn(
         "inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
         className

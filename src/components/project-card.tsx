@@ -16,15 +16,17 @@ export function ProjectCard({
 
   return (
     <article className={cn("flex w-full flex-col gap-3 sm:gap-4", className)}>
-      <img
-        src={project.imageUrl}
-        alt={project.imageAlt}
-        width={isLarge ? 960 : 640}
-        height={isLarge ? 640 : 480}
-        className="block h-auto w-full"
-        loading="lazy"
-        decoding="async"
-      />
+      <a href={`/cases/${project.id}`} className="block">
+        <img
+          src={project.imageUrl}
+          alt={project.imageAlt}
+          width={isLarge ? 960 : 640}
+          height={isLarge ? 640 : 480}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
       <div>
         <p className="text-sm font-semibold lowercase tracking-wide text-black/80">
           {project.categories.join(".")}

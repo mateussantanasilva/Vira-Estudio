@@ -19,18 +19,27 @@ const foregroundClass = {
   black: "text-black",
 } as const
 
-export function MinimalMenu() {
+export function MinimalMenu({
+  pinned = false,
+  chrome: forcedChrome,
+}: {
+  pinned?: boolean
+  chrome?: SectionChrome
+} = {}) {
   const headerVisible = useHeaderVisibility("site-header")
   const activeSection = useActiveSection(sectionIds)
   const reduceMotion = useReducedMotion()
   const [chrome, setChrome] = useState<SectionChrome>(() =>
-    getSectionChrome(activeSection)
+    pinned && forcedChrome ? forcedChrome : getSectionChrome(activeSection)
   )
   const [flipKey, setFlipKey] = useState(0)
 
-  const isVisible = !headerVisible
+  const isVisible = pinned || !headerVisible
+  const activeChrome = pinned && forcedChrome ? forcedChrome : chrome
 
   useEffect(() => {
+    if (pinned) return
+
     const next = getSectionChrome(activeSection)
     if (next.id === chrome.id) return
 
@@ -41,7 +50,7 @@ export function MinimalMenu() {
 
     setFlipKey((key) => key + 1)
     setChrome(next)
-  }, [activeSection, chrome.id, reduceMotion])
+  }, [pinned, activeSection, chrome.id, reduceMotion])
 
   return (
     <AnimatePresence>
@@ -60,7 +69,7 @@ export function MinimalMenu() {
           */}
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: chrome.bg }}
+            style={{ backgroundColor: activeChrome.bg }}
             aria-hidden="true"
           />
 
@@ -69,7 +78,7 @@ export function MinimalMenu() {
               key={flipKey}
               className="h-full origin-center"
               style={{
-                backgroundColor: chrome.bg,
+                backgroundColor: activeChrome.bg,
                 transformStyle: "preserve-3d",
               }}
               initial={
@@ -81,19 +90,19 @@ export function MinimalMenu() {
               <div
                 className={cn(
                   "mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8",
-                  foregroundClass[chrome.foreground]
+                  foregroundClass[activeChrome.foreground]
                 )}
               >
                 <BrandLogo
                   variant="mark"
-                  tone={chrome.foreground === "black" ? "dark" : "beige"}
+                  tone={activeChrome.foreground === "black" ? "dark" : "beige"}
                   className="transition-opacity duration-200 hover:opacity-70 [&_img]:h-7 sm:[&_img]:h-8"
                 />
 
                 <MenuTrigger
                   className={cn(
                     "inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase transition-opacity duration-200 hover:opacity-70",
-                    foregroundClass[chrome.foreground]
+                    foregroundClass[activeChrome.foreground]
                   )}
                 >
                   <Menu className="size-5" aria-hidden="true" />

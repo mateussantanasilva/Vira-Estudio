@@ -4,10 +4,10 @@ export type NavLink = {
 }
 
 export const mainNavLinks: NavLink[] = [
-  { label: "O VIRA", href: "#o-vira" },
-  { label: "PROJETOS", href: "#ja-virou" },
-  { label: "COMO FUNCIONA", href: "#como-funciona" },
-  { label: "SOBRE", href: "#sobre" },
+  { label: "O VIRA", href: "/#o-vira" },
+  { label: "PROJETOS", href: "/#ja-virou" },
+  { label: "COMO FUNCIONA", href: "/#como-funciona" },
+  { label: "SOBRE", href: "/#sobre" },
 ]
 
 export const footerNavColumns = [
