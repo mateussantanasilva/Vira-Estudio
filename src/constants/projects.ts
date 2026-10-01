@@ -153,7 +153,7 @@ export const projects: Project[] = [
   },
   {
     id: "adriane-santos",
-    title: "Adriane Santos . Terapias Manuais",
+    title: "Adriane Santos",
     categories: ["identidade visual", "social media"],
     imageUrl: thumbAdriane,
     imageAlt: "Identidade visual e social media de Adriane Santos",
@@ -173,16 +173,16 @@ export const projects: Project[] = [
   },
   {
     id: "suzie-darc",
-    title: "Suzie Darc — Prime Care Enfermagem",
+    title: "Suzie Darc",
     categories: ["social media", "desenvolvimento web"],
     imageUrl: thumbSuzie,
-    imageAlt: "Presença digital da Suzie Darc — Prime Care Enfermagem",
+    imageAlt: "Presença digital da Suzie Darc",
     visible: true,
     logo: { src: logoSuzie, alt: "Logo Suzie Darc" },
     logoTone: "dark",
     banners: banners(
       [suzie01, suzie02, suzie03],
-      "Suzie Darc — Prime Care Enfermagem"
+      "Suzie Darc"
     ),
     about:
       "Suzie Darc atua há mais de 20 anos com cuidado corporal, drenagem terapêutica e acompanhamento de pacientes no pós-operatório de cirurgias plásticas, oferecendo uma assistência próxima e individualizada durante o processo de recuperação.",

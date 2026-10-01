@@ -31,7 +31,7 @@ export function ProjectCard({
       </Link>
       <div>
         <p className="text-sm font-semibold lowercase tracking-wide text-black/80">
-          {project.categories.join(".")}
+          {project.categories.join(" . ")}
         </p>
         <h3
           className={cn(
