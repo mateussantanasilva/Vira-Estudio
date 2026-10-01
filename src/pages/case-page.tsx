@@ -64,7 +64,7 @@ function CaseBanner({ images }: { images: ProjectImage[] }) {
 
 function CaseBlock({ label, text }: { label: string; text: string }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <h2 className="text-xl font-bold tracking-wide text-orange uppercase sm:text-2xl">
         <ViraFlip as="span">{label}</ViraFlip>
       </h2>
