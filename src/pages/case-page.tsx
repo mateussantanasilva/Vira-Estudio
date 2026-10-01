@@ -15,7 +15,6 @@ import {
 } from "@/constants/projects"
 import type { SectionChrome } from "@/constants/section-chrome"
 import { viraEase } from "@/lib/motion"
-import { cn } from "@/lib/utils"
 
 const caseChrome = {
   id: "case",
@@ -44,17 +43,14 @@ function CaseBanner({ images }: { images: ProjectImage[] }) {
   const active = reduceMotion ? 0 : index
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray">
+    <div className="relative h-[min(56.25vw,600px)] w-full overflow-hidden bg-gray">
       {images.map((image, imageIndex) => (
         <motion.img
           key={image.src}
           src={image.src}
           alt={imageIndex === active ? image.alt : ""}
           aria-hidden={imageIndex === active ? undefined : true}
-          className={cn(
-            "block h-auto w-full",
-            imageIndex === 0 ? "relative" : "absolute inset-0 h-full object-cover"
-          )}
+          className="absolute inset-0 h-full w-full object-cover"
           initial={false}
           animate={{ opacity: imageIndex === active ? 1 : 0 }}
           transition={{ duration: rotating ? FADE_S : 0, ease: viraEase }}
