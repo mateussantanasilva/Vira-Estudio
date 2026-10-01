@@ -24,7 +24,19 @@ export function BrandLogo({
 
   return (
     <Link
-      to="/#topo"
+      to="/"
+      onClick={() => {
+        if (window.location.pathname !== "/" || window.location.hash !== "") return
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: reduceMotion ? "instant" : "smooth",
+        })
+      }}
       className={cn(
         "inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
         className
