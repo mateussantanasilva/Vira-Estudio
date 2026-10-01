@@ -9,6 +9,7 @@ import {
 import "./index.css"
 import { CasePage } from "./pages/case-page.tsx"
 import { Home } from "./pages/home.tsx"
+import { Analytics } from "@vercel/analytics/react"
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -36,6 +37,7 @@ function ScrollManager() {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
+      <Analytics />
       <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />

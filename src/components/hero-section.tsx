@@ -33,7 +33,7 @@ function HeroPhrase({ reduceMotion }: { reduceMotion: boolean | null }) {
   return (
     <span className="inline-grid overflow-hidden text-black align-bottom" aria-hidden="true">
       <span className="invisible col-start-1 row-start-1">Seu negócio</span>
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         <motion.span
           key={phrase}
           className="col-start-1 row-start-1 block"
