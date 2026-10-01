@@ -8,7 +8,6 @@ import { ctaHeroClassName } from "@/lib/cta"
 import {
   duration,
   easeOut,
-  revealTransition,
   revealVariants,
   viraEase,
 } from "@/lib/motion"
