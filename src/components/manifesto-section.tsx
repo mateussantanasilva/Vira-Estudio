@@ -22,8 +22,7 @@ export function ManifestoSection() {
             </RevealItem>
             <RevealItem>
               <p className="max-w-xl text-balance text-base leading-relaxed text-black sm:text-lg">
-                Aqui no VIRA, a gente acredita que negócio pequeno não precisa
-                parecer pequeno. Tem muita gente fazendo acontecer todos os dias,
+                Tem muita gente fazendo acontecer todos os dias,
                 mas ainda com uma marca improvisada, um Instagram que não
                 acompanha a qualidade do negócio ou um site que nunca saiu do
                 papel.

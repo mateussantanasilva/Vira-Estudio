@@ -18,21 +18,20 @@ export const footerNavColumns = [
   {
     title: "ENCONTRA",
     links: [
-      { label: "INSTAGRAM", href: "https://instagram.com" },
-      { label: "FACEBOOK", href: "https://facebook.com" },
-      { label: "TIKTOK", href: "https://tiktok.com" },
+      { label: "INSTAGRAM", href: "https://www.instagram.com/oviraestudio" },
+      { label: "TIKTOK", href: "https://www.tiktok.com/@oviraestudio" },
     ],
   },
   {
     title: "CONVERSA",
     links: [
-      { label: "WHATSAPP", href: "https://wa.me/5500000000000" },
-      { label: "E-MAIL", href: "mailto:ola@viraestudio.com.br" },
+      { label: "(11) 98334-2471", href: "https://wa.me/5511983342471" },
+      { label: "oviraestudio@gmail.com", href: "mailto:oviraestudio@gmail.com" },
     ],
   },
 ] as const
 
 export const ctaLink = {
   label: "FAZER VIRAR",
-  href: "https://wa.me/5500000000000",
+  href: "https://wa.me/5511983342471",
 } as const

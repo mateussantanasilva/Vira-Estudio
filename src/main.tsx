@@ -20,8 +20,12 @@ function ScrollManager() {
     }
 
     const id = decodeURIComponent(hash.slice(1))
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches
+
     document.getElementById(id)?.scrollIntoView({
-      behavior: "instant",
+      behavior: reduceMotion ? "instant" : "smooth",
       block: "start",
     })
   }, [pathname, hash])
